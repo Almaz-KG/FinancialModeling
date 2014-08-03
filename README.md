@@ -11,5 +11,5 @@
 Более детальную информацию смотри в  [wiki] [1]:
 
 
-[1]:https://github.com/Almaz-KG/ProjectGermes/wiki/Project-Germes
+[1]:https://github.com/Almaz-KG/ProjectGermes/wiki/
 
