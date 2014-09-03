@@ -1,6 +1,5 @@
-package incubator;
+package org.projectgermes.incubator;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
