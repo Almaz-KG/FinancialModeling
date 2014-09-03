@@ -10,8 +10,7 @@ public class ProjectTView {
     public static void main(String[] args) {
         WebLookAndFeel.install();
 
-        boolean decorateFrames = WebLookAndFeel.isDecorateDialogs ();
-        WebLookAndFeel.setDecorateDialogs ( true );
+        WebLookAndFeel.setDecorateAllWindows(true);
         LoginWebFrame frame = new LoginWebFrame();
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -22,6 +21,6 @@ public class ProjectTView {
 
 
 
-        WebLookAndFeel.setDecorateDialogs ( decorateFrames );
+      //  WebLookAndFeel.setDecorateDialogs ( decorateFrames );
     }
 }

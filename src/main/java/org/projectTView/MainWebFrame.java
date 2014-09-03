@@ -3,10 +3,12 @@ package org.projectTView;
 import com.alee.extended.layout.VerticalFlowLayout;
 import com.alee.extended.painter.TitledBorderPainter;
 import com.alee.extended.panel.BorderPanel;
+import com.alee.extended.panel.CenterPanel;
 import com.alee.extended.panel.GroupPanel;
 import com.alee.extended.panel.WebButtonGroup;
 import com.alee.extended.window.ComponentMoveAdapter;
 import com.alee.laf.WebLookAndFeel;
+import com.alee.laf.button.WebButton;
 import com.alee.laf.button.WebToggleButton;
 import com.alee.laf.checkbox.WebCheckBox;
 import com.alee.laf.combobox.WebComboBox;
@@ -38,13 +40,19 @@ import java.awt.event.ItemListener;
  */
 public class MainWebFrame extends WebFrame{
     public MainWebFrame () throws HeadlessException {
-        super ( "Example frame" );
+
+
+
+        setTitle("AA");
+        init();
+    }
+
+    private void init(){
         setIconImages ( WebLookAndFeel.getImages() );
         setDefaultCloseOperation ( WebFrame.DISPOSE_ON_CLOSE );
 
-        ComponentMoveAdapter.install(getRootPane(), MainWebFrame.this);
+        setMinimumSize(new Dimension(400, 600));
 
-        // Sample menu bar
         final WebMenuBar menuBar = new WebMenuBar ();
         menuBar.setUndecorated ( true );
         menuBar.setBorder ( BorderFactory.createEmptyBorder(2, 2, 2, 2) );
@@ -82,7 +90,7 @@ public class MainWebFrame extends WebFrame{
         } );
         setJMenuBar ( menuBar );
 
-        // Options panel
+
         add ( new BorderPanel( new WebPanel( new VerticalFlowLayout( 10, 10 ) )
         {
             {
@@ -359,8 +367,22 @@ public class MainWebFrame extends WebFrame{
                         }, BorderLayout.LINE_END );
                     }
                 } );
+
+                WebButton login = new WebButton ( "Form" );
+                WebButton cancel = new WebButton ( "Chart" );
+
+                login.addActionListener ( (e)-> form());
+                cancel.addActionListener ( (e) -> chart());
+
+                add ( new CenterPanel( new GroupPanel( 5, login, cancel ) ), "0,2,1,2" );
             }
         }, 10 ) );
+    }
+
+    private void form(){}
+    private void chart(){
+        new ChartWebFrame().setVisible(true);
+
     }
 }
 
