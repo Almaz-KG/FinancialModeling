@@ -3,6 +3,8 @@ package org.projectTView;
 import com.alee.extended.layout.TableLayout;
 import com.alee.extended.panel.CenterPanel;
 import com.alee.extended.panel.GroupPanel;
+import com.alee.extended.time.ClockType;
+import com.alee.extended.time.WebClock;
 import com.alee.laf.WebLookAndFeel;
 import com.alee.laf.button.WebButton;
 import com.alee.laf.label.WebLabel;
@@ -12,10 +14,12 @@ import com.alee.laf.text.WebPasswordField;
 import com.alee.laf.text.WebTextField;
 import com.alee.managers.hotkey.Hotkey;
 import com.alee.managers.hotkey.HotkeyManager;
+import com.alee.managers.notification.NotificationIcon;
+import com.alee.managers.notification.NotificationManager;
+import com.alee.managers.notification.WebNotificationPopup;
 import com.alee.utils.SwingUtils;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
@@ -49,15 +53,22 @@ public class LoginWebFrame extends WebDialog{
 
         WebButton login = new WebButton ( "Login" );
         WebButton cancel = new WebButton ( "Cancel" );
-        ActionListener listener = (e) -> setVisible(true);
+        ActionListener loginListener = (e) -> login();
+        ActionListener cancelListener = (e) -> dispose();
 
-        login.addActionListener ( listener );
-        cancel.addActionListener ( listener );
+        login.addActionListener ( loginListener );
+        cancel.addActionListener ( cancelListener );
         content.add ( new CenterPanel( new GroupPanel( 5, login, cancel ) ), "0,2,1,2" );
 
         add ( content );
 
         HotkeyManager.registerHotkey(this, login, Hotkey.ESCAPE);
         HotkeyManager.registerHotkey ( this, login, Hotkey.ENTER );
+    }
+
+    private void login(){
+        new MainWebFrame().setVisible(true);
+
+     //   dispose();
     }
 }
