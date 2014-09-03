@@ -22,13 +22,16 @@ import java.awt.event.ActionListener;
  * Created by almu0214 on 03.09.2014.
  */
 public class LoginWebFrame extends WebDialog{
-    public LoginWebFrame ( Window owner ) {
-        super ( owner, "Example dialog" );
-        setIconImages ( WebLookAndFeel.getImages() );
-        setDefaultCloseOperation ( WebDialog.DISPOSE_ON_CLOSE );
-        setSize(280, 140);
-        setResizable ( false );
-        setModal ( false );
+    public LoginWebFrame(){
+        setTitle("Example dialog");
+        init();
+    }
+
+    private void init(){
+        setIconImages(WebLookAndFeel.getImages());
+        setDefaultCloseOperation(WebDialog.DISPOSE_ON_CLOSE);
+        setMinimumSize(new Dimension(290, 140));
+        setResizable ( true );
 
         TableLayout layout = new TableLayout ( new double[][]{ { TableLayout.PREFERRED, TableLayout.FILL },
                 { TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED } } );
@@ -51,7 +54,6 @@ public class LoginWebFrame extends WebDialog{
         login.addActionListener ( listener );
         cancel.addActionListener ( listener );
         content.add ( new CenterPanel( new GroupPanel( 5, login, cancel ) ), "0,2,1,2" );
-        SwingUtils.equalizeComponentsWidths(login, cancel);
 
         add ( content );
 

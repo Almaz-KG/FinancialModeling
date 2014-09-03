@@ -9,13 +9,12 @@ import com.alee.laf.rootpane.WebFrame;
 public class ProjectTView {
     public static void main(String[] args) {
         WebLookAndFeel.install();
-        TradeTerminal terminal = new TradeTerminal();
 
         boolean decorateFrames = WebLookAndFeel.isDecorateDialogs ();
         WebLookAndFeel.setDecorateDialogs ( true );
-        LoginWebFrame frame = new LoginWebFrame(terminal);
+        LoginWebFrame frame = new LoginWebFrame();
         frame.pack();
-        frame.setLocationRelativeTo(terminal);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         WebLookAndFeel.setDecorateDialogs ( decorateFrames );
     }
