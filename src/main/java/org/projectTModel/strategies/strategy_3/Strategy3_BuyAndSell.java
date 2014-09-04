@@ -27,13 +27,13 @@ public class Strategy3_BuyAndSell {
 
             Trade trade = null;
             for (int i = 1; i < bars.length; i++){
-                if(bars[i].getHour() == OPEN_HOUR){
+                if(bars[i].getTime().getHour() == OPEN_HOUR){
                     if(bars[i].getOpenPrice() > bars[i - 1].getClosePrice()){
                         double gap = bars[i].getOpenPrice() - bars[i - 1].getClosePrice();
                         double barSize = bars[i].getHighPrice() - bars[i].getLowPrice();
                         if(gap >= barSize * SIGNAL_BAR_SIZE_FACTOR){
                             Bar bar = bars[i];
-                            trade = new Trade(bar.getDate(), bar.getHour(), TRADE_TYPE.BUY,
+                            trade = new Trade(bar.getDate(), bar.getTime(), TRADE_TYPE.BUY,
                                     bar.getClosePrice(), 0, Double.MIN_VALUE);
                         }
                     } else if(bars[i].getOpenPrice() < bars[i - 1].getClosePrice()){
@@ -42,12 +42,12 @@ public class Strategy3_BuyAndSell {
 
                         if(gap >= barSize * SIGNAL_BAR_SIZE_FACTOR){
                             Bar bar = bars[i];
-                            trade = new Trade(bar.getDate(), bar.getHour(), TRADE_TYPE.SELL,
+                            trade = new Trade(bar.getDate(), bar.getTime(), TRADE_TYPE.SELL,
                                     bar.getClosePrice(), 0, Double.MIN_VALUE);
                         }
                     }
                 }
-                if(bars[i].getHour() == CLOSE_HOUR && trade != null) {
+                if(bars[i].getTime().getHour() == CLOSE_HOUR && trade != null) {
                     trade.setClosePrice(bars[i].getClosePrice());
                     report.addTrade(trade);
                     trade = null;

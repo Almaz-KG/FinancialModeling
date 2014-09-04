@@ -48,12 +48,12 @@ public class Strategy2_BuyAndSell {
                         trade = null;
                     }
                 }
-                if(bars[i].getHour() == OPEN_HOUR){
+                if(bars[i].getTime().getHour() == OPEN_HOUR){
                     if(bars[i].getOpenPrice() > bars[i - 1].getClosePrice() &&
                             bars[i].getOpenPrice() < bars[i].getClosePrice() &&
                             isSignalBar(bars[i])){
                         Bar bar = bars[i];
-                        trade = new Trade(bar.getDate(), bar.getHour(), TRADE_TYPE.BUY,
+                        trade = new Trade(bar.getDate(), bar.getTime(), TRADE_TYPE.BUY,
                                 bar.getOpenPrice() + (bar.getClosePrice() - bar.getOpenPrice()) / 2,
                                 0, Double.MIN_VALUE);
                     }
@@ -62,17 +62,17 @@ public class Strategy2_BuyAndSell {
                             bars[i].getOpenPrice() > bars[i].getClosePrice() &&
                             isSignalBar(bars[i])){
                         Bar bar = bars[i];
-                        trade = new Trade(bar.getDate(), bar.getHour(), TRADE_TYPE.SELL,
+                        trade = new Trade(bar.getDate(), bar.getTime(), TRADE_TYPE.SELL,
                                 bar.getOpenPrice() - (bar.getOpenPrice() - bar.getClosePrice()) / 2,
                                 0, bar.getOpenPrice());
                     }
-                    if(bars[i].getHour() == CLOSE_HOUR && trade != null) {
+                    if(bars[i].getTime().getHour() == CLOSE_HOUR && trade != null) {
                         trade.setClosePrice(bars[i].getClosePrice());
                         report.addTrade(trade);
                         trade = null;
                     }
                 }
-                if(bars[i].getHour() == CLOSE_HOUR && trade != null) {
+                if(bars[i].getTime().getHour() == CLOSE_HOUR && trade != null) {
                     trade.setClosePrice(bars[i].getClosePrice());
                     report.addTrade(trade);
                     trade = null;

@@ -49,7 +49,7 @@ public class HtmlResultBuilder {
         for (Trade tr: trades){
             buffer.append("<tr align=center>\n" +
                     "<td colspan=2>"+formatter.format(tr.getDate())+"</td>" +
-                    "<td>"+tr.getHour()+":00</td>" +
+                    "<td>"+tr.getTime()+":00</td>" +
                     "<td>"+String.format("%.2f", tr.getOpenPrice()) +"</td>" +
                     "<td>"+String.format("%.2f", tr.getClosePrice())+"</td>" +
                     "<td>"+String.format("%.2f", tr.getResult())+"</td>" +

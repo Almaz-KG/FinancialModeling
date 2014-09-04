@@ -57,7 +57,7 @@ public class LoginWebFrame extends WebDialog{
 
         add ( content );
 
-        HotkeyManager.registerHotkey(this, login, Hotkey.ESCAPE);
+        HotkeyManager.registerHotkey(this, cancel, Hotkey.ESCAPE);
         HotkeyManager.registerHotkey ( this, login, Hotkey.ENTER );
     }
 

@@ -10,28 +10,21 @@ import java.util.Date;
 public class Trade {
     private double openPrice;
     private double closePrice;
-    private double result;
-    private int hour;
+    private Time time;
     private Date date;
     private TRADE_TYPE type;
     private double stopLoss;
     private double takeProfit;
 
-
-    public Trade(Date date, int hour, TRADE_TYPE type, double openPrice,
+    public Trade(Date date, Time time, TRADE_TYPE type, double openPrice,
                  double closePrice, double stopLoss, double takeProfit) {
-        this.openPrice = openPrice;
-        this.closePrice = closePrice;
-        this.hour = hour;
-        this.type = type;
-        this.date = date;
-        this.stopLoss = stopLoss;
+        this(date, time, type, openPrice, closePrice, stopLoss);
         this.takeProfit = takeProfit;
     }
-    public Trade(Date date, int hour, TRADE_TYPE type, double openPrice, double closePrice, double stopLoss) {
+    public Trade(Date date, Time time, TRADE_TYPE type, double openPrice, double closePrice, double stopLoss) {
         this.openPrice = openPrice;
         this.closePrice = closePrice;
-        this.hour = hour;
+        this.time = time;
         this.type = type;
         this.date = date;
         this.stopLoss = stopLoss;
@@ -58,14 +51,12 @@ public class Trade {
     public void setStopLoss(double stopLoss) {
         this.stopLoss = stopLoss;
     }
-    public void setResult(double result) {
-        this.result = result;
+
+    public Time getTime() {
+        return time;
     }
-    public int getHour() {
-        return hour;
-    }
-    public void setHour(int hour) {
-        this.hour = hour;
+    public void setTime(Time time) {
+        this.time = time;
     }
     public TRADE_TYPE getType() {
         return type;

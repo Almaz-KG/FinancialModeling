@@ -2,6 +2,7 @@ package org.projectTModel.loader;
 
 import org.projectTModel.entities.Bar;
 import org.projectTModel.entities.StockHistory;
+import org.projectTModel.entities.Time;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,7 +36,8 @@ public class Loader {
         return  null;
     }
 
-    private static StockHistory loadHistory(File f){
+
+    public static StockHistory loadHistory(File f){
         try{
             sc = new Scanner(f);
             String name = f.getName();
@@ -50,6 +52,7 @@ public class Loader {
         }
         return null;
     }
+
     private static StockHistory buildStockHistory(String name, List<String> lines) {
         StockHistory history = new StockHistory();
         List<Bar> bars = new ArrayList<>();
@@ -63,13 +66,17 @@ public class Loader {
                     Date date = new SimpleDateFormat("yyyy.MM.dd").parse(data[0]);
                     String[] sHour = data[1].split(":");
                     int hour =  Integer.parseInt(sHour[0]);
+                    int minute = Integer.parseInt(sHour[1]);
+                    Time time = new Time(hour, minute);
+
+
                     double openPrice = Double.parseDouble(data[2]);
                     double highPrice = Double.parseDouble(data[3]);
                     double lowPrice = Double.parseDouble(data[4]);
                     double closePrice = Double.parseDouble(data[5]);
                     int volume = Integer.parseInt(data[6]);
 
-                    bars.add(new Bar(date, hour, openPrice,highPrice, lowPrice,closePrice,volume));
+                    bars.add(new Bar(date, time, openPrice,highPrice, lowPrice,closePrice,volume));
                 } catch (ParseException e){
                     e.printStackTrace();
                 }

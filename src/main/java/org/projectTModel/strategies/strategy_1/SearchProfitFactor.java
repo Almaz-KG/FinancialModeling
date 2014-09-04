@@ -45,23 +45,23 @@ public class SearchProfitFactor {
 
                 Trade trade = null;
                 for (int i = 1; i < bars.length; i++){
-                    if(bars[i].getHour() == OPEN_HOUR){
+                    if(bars[i].getTime().getHour() == OPEN_HOUR){
                         if(bars[i].getOpenPrice() > bars[i - 1].getClosePrice() &&
                                 bars[i].getOpenPrice() < bars[i].getClosePrice() &&
                                 isSignalBar(bars[i], sizeFactor)){
                             Bar bar = bars[i];
-                            trade = new Trade(bar.getDate(), bar.getHour(), TRADE_TYPE.BUY,
+                            trade = new Trade(bar.getDate(), bar.getTime(), TRADE_TYPE.BUY,
                                     bar.getClosePrice(), 0, bar.getOpenPrice());
                         }
                         if(bars[i].getOpenPrice() < bars[i - 1].getClosePrice() &&
                                 bars[i].getOpenPrice() > bars[i].getClosePrice() &&
                                 isSignalBar(bars[i], sizeFactor)){
                             Bar bar = bars[i];
-                            trade = new Trade(bar.getDate(), bar.getHour(), TRADE_TYPE.SELL,
+                            trade = new Trade(bar.getDate(), bar.getTime(), TRADE_TYPE.SELL,
                                     bar.getClosePrice(), 0, bar.getOpenPrice());
                         }
                     }
-                    if(bars[i].getHour() == CLOSE_HOUR && trade != null) {
+                    if(bars[i].getTime().getHour() == CLOSE_HOUR && trade != null) {
                         trade.setClosePrice(bars[i].getClosePrice());
                         report.addTrade(trade);
                         trade = null;

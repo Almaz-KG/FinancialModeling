@@ -46,15 +46,15 @@ public class Strategy1_SellOnly {
 
             Trade trade = null;
             for (int i = 1; i < bars.length; i++){
-                if(bars[i].getHour() == openHour){
+                if(bars[i].getTime().getHour() == openHour){
                     if(bars[i].getOpenPrice() > bars[i - 1].getClosePrice() &&
                             bars[i].getOpenPrice() < bars[i].getClosePrice()){
                         Bar bar = bars[i];
-                        trade = new Trade(bar.getDate(), bar.getHour(), TRADE_TYPE.SELL,
+                        trade = new Trade(bar.getDate(), bar.getTime(), TRADE_TYPE.SELL,
                                 bar.getClosePrice(), 0, bar.getOpenPrice());
                     }
                 }
-                if(bars[i].getHour() == closeHour && trade != null) {
+                if(bars[i].getTime().getHour() == closeHour && trade != null) {
                     trade.setClosePrice(bars[i].getClosePrice());
                     report.addTrade(trade);
                     trade = null;

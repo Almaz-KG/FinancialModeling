@@ -16,19 +16,18 @@ public class Bar {
     private double close;
     private int volume;
     private Date date;
-    private int hour;
+    private Time time;
 
-    public Bar(){}
-
-    public Bar(Date date, int hour, double open, double high, double low, double close, int volume){
+    public Bar(Date date, Time hour, double open, double high, double low, double close, int volume){
         this.high = high;
         this.low = low;
         this.open = open;
         this.close = close;
         this.volume = volume;
         this.date = date;
-        this.hour = hour;
+        this.time = hour;
     }
+
 
     public double getHighPrice() {
         return high;
@@ -66,17 +65,18 @@ public class Bar {
     public void setDate(Date date) {
         this.date = date;
     }
-    public int getHour() {
-        return hour;
+    public Time getTime() {
+        return time;
     }
-    public void setHour(int hour) {
-        this.hour = hour;
+    public void setTime(Time time){
+        this.time = time;
     }
+
 
     public String toString(){
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-        return formatter.format(this.date) + " " + hour + ":00 " + open + " " + high + " " + low + " " + close;
+        return formatter.format(this.date) + " " + time.toString() + ":00 " + open + " " + high + " " + low + " " + close;
     }
 
 }
