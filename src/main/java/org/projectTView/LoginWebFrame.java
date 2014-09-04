@@ -8,6 +8,7 @@ import com.alee.laf.button.WebButton;
 import com.alee.laf.label.WebLabel;
 import com.alee.laf.panel.WebPanel;
 import com.alee.laf.rootpane.WebDialog;
+import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.text.WebPasswordField;
 import com.alee.laf.text.WebTextField;
 import com.alee.managers.hotkey.Hotkey;
@@ -20,7 +21,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by almu0214 on 03.09.2014.
  */
-public class LoginWebFrame extends WebDialog{
+public class LoginWebFrame extends WebFrame{
     public LoginWebFrame(){
         setTitle("Example dialog");
         init();
@@ -62,7 +63,7 @@ public class LoginWebFrame extends WebDialog{
     }
 
     private void login(){
-        new MainWebFrame().setVisible(true);
+        new ChartWebFrame().setVisible(true);
 
         dispose();
     }
