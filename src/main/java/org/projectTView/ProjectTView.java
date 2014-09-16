@@ -13,7 +13,7 @@ public class ProjectTView {
 
         WebLookAndFeel.setDecorateAllWindows(true);
 
-        WebFrame frame = new ChartWebFrame();
+        WebFrame frame = new LoginWebFrame();
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
