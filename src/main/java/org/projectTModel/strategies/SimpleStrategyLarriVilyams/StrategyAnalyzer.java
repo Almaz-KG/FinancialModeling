@@ -52,7 +52,9 @@ public class StrategyAnalyzer {
                 cl.setTime(friday.getDate());
                 int d2 = cl.get(Calendar.DAY_OF_WEEK);
                 if(d2 == FRIDAY){
-                    if(bar.getOpenPrice() < friday.getClosePrice()){
+
+
+                    if(bar.getOpenPrice() < friday.getClosePrice() * 0.98){
                         result.addTrade(new Trade(bar.getDate(), bar.getTime(), TRADE_TYPE.BUY, bar.getOpenPrice(), bar.getClosePrice(), 0, 0));
                     }
                 }

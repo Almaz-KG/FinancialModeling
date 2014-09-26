@@ -28,7 +28,15 @@ public class Time {
 
     @Override
     public String toString(){
-        return hour +" : " + minute;
+        String hour = "" + getHour();
+        String minute = "" + getMinute();
+
+        if(getHour() == 0)
+            hour = "00";
+        if(getMinute() == 0)
+            minute = "00";
+
+        return hour +":" + minute;
     }
 
 }

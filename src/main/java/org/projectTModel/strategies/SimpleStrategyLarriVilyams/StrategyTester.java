@@ -25,7 +25,7 @@ public class StrategyTester {
 
             new ResultBuilder().printToConsole(result);
         */
-        File gold = new File("D:\\ETF");
+        File gold = new File("D:\\ETF\\DAY");
 
         List<StockHistory> histories = Loader.load(gold);
         new ResultBuilder().printToConsole(new StrategyAnalyzer().analyzeHistories(histories));

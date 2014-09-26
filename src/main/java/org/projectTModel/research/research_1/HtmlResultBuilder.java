@@ -1,7 +1,7 @@
-package org.projectTModel.research;
+package org.projectTModel.research.research_1;
 
 import org.projectTModel.entities.Bar;
-import org.projectTModel.entities.Trade;
+import org.projectTModel.research.research_1.ResearchResult;
 
 import java.io.BufferedWriter;
 import java.io.File;

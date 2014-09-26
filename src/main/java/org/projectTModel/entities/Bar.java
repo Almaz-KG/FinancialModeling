@@ -73,6 +73,13 @@ public class Bar {
     }
 
 
+    public boolean isUpBar(){
+        return getOpenPrice() < getClosePrice();
+    }
+    public boolean isDownBar(){
+        return getOpenPrice() > getClosePrice();
+    }
+
     public String toString(){
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
