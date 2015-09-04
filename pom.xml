@@ -14,12 +14,12 @@
             <artifactId>log4j</artifactId>
             <version>1.2.16</version>
         </dependency>
-        <dependency>
-            <!-- Look and feel-->
-            <groupId>de.sciss</groupId>
-            <artifactId>weblaf</artifactId>
-            <version>1.28</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--&lt;!&ndash; Look and feel&ndash;&gt;-->
+            <!--<groupId>de.sciss</groupId>-->
+            <!--<artifactId>weblaf</artifactId>-->
+            <!--<version>1.28</version>-->
+        <!--</dependency>-->
         <dependency>
             <!-- Chart library-->
             <groupId>org.jfree</groupId>
