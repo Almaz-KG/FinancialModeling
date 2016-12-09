@@ -6,26 +6,43 @@
 
     <groupId>financial-modeling</groupId>
     <artifactId>financial-modeling</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>SimpleClient</module>
+        <module>CoreEntities</module>
+        <module>SimpleServer</module>
+    </modules>
 
     <dependencies>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
+            <groupId>org.apache.mina</groupId>
+            <artifactId>mina-core</artifactId>
+            <version>2.0.9</version>
         </dependency>
-        <!--<dependency>-->
-            <!--&lt;!&ndash; Look and feel&ndash;&gt;-->
-            <!--<groupId>de.sciss</groupId>-->
-            <!--<artifactId>weblaf</artifactId>-->
-            <!--<version>1.28</version>-->
-        <!--</dependency>-->
         <dependency>
-            <!-- Chart library-->
-            <groupId>org.jfree</groupId>
-            <artifactId>jfreechart</artifactId>
-            <version>1.0.15</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.5</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
